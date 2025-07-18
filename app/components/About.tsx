@@ -21,7 +21,7 @@ export default function About() {
               </p>
               
               <p>
-                Nama "Murniati" diambil dari nama pendiri kami, Ibu Murniati, yang dengan penuh 
+                Nama &ldquo;Murniati&rdquo; diambil dari nama pendiri kami, Ibu Murniati, yang dengan penuh 
                 dedikasi mengembangkan resep rahasia yang kini menjadi kebanggaan keluarga. 
                 Resep ini diwariskan turun temurun dengan tetap mempertahankan kualitas dan 
                 cita rasa yang original.
