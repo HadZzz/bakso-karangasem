@@ -25,6 +25,7 @@ export default function RootLayout({
   return (
     <html lang="id">
       <head>
+        <meta name="google-site-verification" content="5mAM5b2AU2ijdyRFKokDSX1NQ6b22MibtjoO2wRlsR8" />
         <JsonLd />
       </head>
       <body

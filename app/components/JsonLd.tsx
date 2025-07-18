@@ -4,11 +4,11 @@ export default function JsonLd() {
     "@graph": [
       {
         "@type": "Restaurant",
-        "@id": "https://baksomurniati.com/#restaurant",
+        "@id": "https://bakso-murniati.vercel.app/#restaurant",
         "name": "Bakso Murniati",
         "alternateName": "Warung Bakso Murniati",
         "description": "Bakso legendaris dengan cita rasa autentik sejak 1985 di Karangasem, Sukoharjo",
-        "url": "https://baksomurniati.com",
+        "url": "https://bakso-murniati.vercel.app",
         "telephone": "+62-271-123-4567",
         "email": "hadzipamuji5@gmail.com",
         "foundingDate": "1985",
@@ -96,10 +96,10 @@ export default function JsonLd() {
       },
       {
         "@type": "LocalBusiness",
-        "@id": "https://baksomurniati.com/#localbusiness",
+        "@id": "https://bakso-murniati.vercel.app/#localbusiness",
         "name": "Bakso Murniati",
         "description": "Warung bakso legendaris di Karangasem, Sukoharjo sejak 1985",
-        "url": "https://baksomurniati.com",
+        "url": "https://bakso-murniati.vercel.app",
         "telephone": "+62-271-123-4567",
         "address": {
           "@type": "PostalAddress",
@@ -122,12 +122,12 @@ export default function JsonLd() {
       },
       {
         "@type": "WebSite",
-        "@id": "https://baksomurniati.com/#website",
-        "url": "https://baksomurniati.com",
+        "@id": "https://bakso-murniati.vercel.app/#website",
+        "url": "https://bakso-murniati.vercel.app",
         "name": "Bakso Murniati",
         "description": "Website resmi Bakso Murniati - Bakso legendaris Karangasem Sukoharjo",
         "publisher": {
-          "@id": "https://baksomurniati.com/#restaurant"
+          "@id": "https://bakso-murniati.vercel.app/#restaurant"
         },
         "inLanguage": "id-ID"
       }

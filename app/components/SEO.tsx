@@ -15,7 +15,7 @@ export const seoConfig = {
     'bakso enak',
     'bakso legendaris'
   ],
-  url: 'https://baksomurniati.com',
+  url: 'https://bakso-murniati.vercel.app',
   siteName: 'Bakso Murniati',
   images: [
     {
@@ -77,7 +77,7 @@ export const generateMetadata = (): Metadata => {
       },
     },
     verification: {
-      google: 'google-site-verification-code',
+      google: '5mAM5b2AU2ijdyRFKokDSX1NQ6b22MibtjoO2wRlsR8',
       yandex: 'yandex-verification-code',
       yahoo: 'yahoo-site-verification-code',
     },
