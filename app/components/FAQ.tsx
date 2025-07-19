@@ -46,8 +46,29 @@ export default function FAQ() {
     );
   };
 
+  // Schema markup for FAQ
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqData.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  };
+
   return (
-    <section className="py-20 bg-gray-50">
+    <>
+      {/* FAQ Schema Markup */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      
+      <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
@@ -126,5 +147,6 @@ export default function FAQ() {
         </div>
       </div>
     </section>
+    </>
   );
 }

@@ -59,7 +59,7 @@ export default function About() {
               <div className="col-span-2 relative h-64 rounded-2xl overflow-hidden shadow-lg">
                 <Image
                   src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                  alt="Warung Bakso Murniati"
+                  alt="Warung bakso enak di Karangasem - Bakso terenak Sukoharjo Bakso Murniati"
                   fill
                   className="object-cover"
                 />
@@ -69,7 +69,7 @@ export default function About() {
               <div className="relative h-32 rounded-2xl overflow-hidden shadow-lg">
                 <Image
                   src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-                  alt="Proses Pembuatan Bakso"
+                  alt="Proses pembuatan bakso enak di Sukoharjo - Kuliner enak Sukoharjo"
                   fill
                   className="object-cover"
                 />
@@ -78,7 +78,7 @@ export default function About() {
               <div className="relative h-32 rounded-2xl overflow-hidden shadow-lg">
                 <Image
                   src="https://images.unsplash.com/photo-1551782450-17144efb9c50?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-                  alt="Bahan Berkualitas"
+                  alt="Bahan berkualitas bakso sapi Karangasem - Warung bakso enak Sukoharjo"
                   fill
                   className="object-cover"
                 />
