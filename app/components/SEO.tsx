@@ -20,7 +20,7 @@ export const seoConfig = {
     'bakso kuah enak sukoharjo',
     'bakso jumbo enak sukoharjo'
   ],
-  url: 'https://bakso-murniati.vercel.app',
+  url: 'https://bakso-murniati-karangasem.vercel.app',
   siteName: 'Bakso Murniati',
   images: [
     {
