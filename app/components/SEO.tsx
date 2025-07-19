@@ -69,6 +69,17 @@ export const generateMetadata = (): Metadata => {
       locale: seoConfig.locale,
       type: 'website',
     },
+    icons: {
+      icon: [
+        { url: '/logo.png', type: 'image/png' },
+        { url: '/icon-192x192.png', sizes: '192x192', type: 'image/png' },
+        { url: '/icon-512x512.png', sizes: '512x512', type: 'image/png' },
+      ],
+      apple: [
+        { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+      ],
+      shortcut: '/logo.png',
+    },
     twitter: {
       card: 'summary_large_image',
       title: seoConfig.title,
@@ -99,6 +110,12 @@ export const generateMetadata = (): Metadata => {
       'business:contact_data:phone_number': '+62-271-123-4567',
       'place:location:latitude': '-7.623456',
       'place:location:longitude': '110.823456',
+      'og:site_name': 'Bakso Murniati',
+      'og:title': seoConfig.title,
+      'og:image': '/logo-1024.png',
+      'og:image:width': '1024',
+      'og:image:height': '1024',
+      'og:image:alt': 'Logo Bakso Murniati - Bakso Paling Enak di Sukoharjo Karangasem',
     },
   };
 };
