@@ -3,16 +3,16 @@ import Image from 'next/image';
 const menuItems = [
   {
     id: 1,
-    name: 'Bakso Spesial',
-    description: 'Bakso sapi pilihan dengan isian telur puyuh, tahu, dan sayuran segar',
+    name: 'Bakso Spesial Murniati',
+    description: 'Bakso enak khas Murniati dengan isian telur puyuh, tahu, dan sayuran segar. Menu andalan yang membuat kami bakso terenak di Sukoharjo!',
     price: 'Rp 15.000',
     image: 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     popular: true
   },
   {
     id: 2,
-    name: 'Bakso Jumbo',
-    description: 'Bakso berukuran jumbo dengan daging sapi premium dan kuah gurih',
+    name: 'Bakso Jumbo Enak',
+    description: 'Bakso jumbo berukuran extra dengan daging sapi premium dan kuah gurih khas Bakso Murniati yang enak',
     price: 'Rp 18.000',
     image: 'https://images.unsplash.com/photo-1585032226651-759b368d7246?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     popular: false
@@ -58,10 +58,11 @@ export default function Menu() {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-            Menu <span className="text-red-600">Favorit</span>
+            Menu <span className="text-red-600">Bakso Enak</span> Kami
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Pilihan menu bakso terbaik dengan cita rasa yang tak terlupakan
+            Inilah mengapa <strong>Bakso Murniati</strong> menjadi <strong>bakso paling enak di Sukoharjo</strong>! 
+            Menu <strong>bakso enak di Karangasem</strong> dengan cita rasa yang tak terlupakan
           </p>
           <div className="w-24 h-1 bg-red-600 mx-auto mt-6"></div>
         </div>
@@ -95,9 +96,14 @@ export default function Menu() {
                 
                 <div className="flex items-center justify-between">
                   <span className="text-2xl font-bold text-red-600">{item.price}</span>
-                  <button className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-full transition-colors duration-300">
+                  <a 
+                    href="https://wa.me/62085876120167" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-full transition-colors duration-300 inline-block text-center"
+                  >
                     Pesan
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>

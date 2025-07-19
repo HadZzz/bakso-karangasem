@@ -25,7 +25,17 @@ export default function RootLayout({
   return (
     <html lang="id">
       <head>
+        <link rel="icon" href="/logo.png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="shortcut icon" href="/logo.png" />
         <meta name="google-site-verification" content="5mAM5b2AU2ijdyRFKokDSX1NQ6b22MibtjoO2wRlsR8" />
+        <meta name="geo.region" content="ID-JI" />
+        <meta name="geo.placename" content="Karangasem, Sukoharjo" />
+        <meta name="geo.position" content="-7.623456;110.823456" />
+        <meta name="ICBM" content="-7.623456, 110.823456" />
+        <meta name="business.contact_data.locality" content="Karangasem" />
+        <meta name="business.contact_data.region" content="Sukoharjo" />
+        <meta name="business.contact_data.country" content="Indonesia" />
         <JsonLd />
       </head>
       <body

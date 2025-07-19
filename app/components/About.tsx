@@ -8,29 +8,30 @@ export default function About() {
           {/* Content */}
           <div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
-              Cerita <span className="text-red-600">Kami</span>
+              Mengapa <span className="text-red-600">Bakso Murniati</span> Paling Enak?
             </h2>
             <div className="w-24 h-1 bg-red-600 mb-8"></div>
             
             <div className="space-y-6 text-gray-600 leading-relaxed">
               <p className="text-lg">
-                <strong className="text-gray-800">Bakso Murniati</strong> telah menjadi bagian dari kehidupan masyarakat 
-                Karangasem, Sukoharjo sejak tahun <strong className="text-red-600">1985</strong>. 
-                Dimulai dari warung kecil sederhana, kami telah melayani ribuan pelanggan dengan 
-                cita rasa bakso yang autentik dan tak terlupakan.
+                <strong className="text-gray-800">Bakso Murniati</strong> telah menjadi <strong className="text-red-600">bakso paling enak di Sukoharjo</strong> 
+                sejak tahun <strong className="text-red-600">1985</strong>. Sebagai <strong>warung bakso enak di Karangasem</strong>, 
+                kami telah melayani ribuan pelanggan yang mengakui bahwa <strong>Bakso Murniati adalah bakso terenak di Sukoharjo</strong> 
+                dengan cita rasa autentik yang tak terlupakan.
               </p>
               
               <p>
                 Nama &ldquo;Murniati&rdquo; diambil dari nama pendiri kami, Ibu Murniati, yang dengan penuh 
-                dedikasi mengembangkan resep rahasia yang kini menjadi kebanggaan keluarga. 
+                dedikasi mengembangkan resep rahasia yang membuat <strong>Bakso Murniati menjadi bakso enak di Sukoharjo</strong>. 
                 Resep ini diwariskan turun temurun dengan tetap mempertahankan kualitas dan 
-                cita rasa yang original.
+                cita rasa yang menjadikan kami <strong>warung bakso paling enak di Karangasem</strong>.
               </p>
               
               <p>
-                Kami bangga menggunakan <strong className="text-gray-800">daging sapi pilihan</strong> 
-                dan bumbu-bumbu alami tanpa pengawet. Setiap bakso dibuat fresh setiap hari 
-                dengan proses yang higienis dan penuh perhatian terhadap detail.
+                Rahasia mengapa <strong>Bakso Murniati adalah bakso terenak di Sukoharjo</strong> terletak pada penggunaan 
+                <strong className="text-gray-800">daging sapi pilihan premium</strong> dan bumbu-bumbu alami tanpa pengawet. 
+                Setiap bakso dibuat fresh setiap hari dengan proses yang higienis dan penuh perhatian terhadap detail, 
+                menjadikan kami <strong>bakso enak di Karangasem yang paling dicari</strong>.
               </p>
             </div>
 

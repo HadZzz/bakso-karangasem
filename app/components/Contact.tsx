@@ -130,7 +130,6 @@ export default function Contact() {
 
             {/* Contact Cards */}
             <div className="space-y-6">
-              {/* Phone */}
               <div className="bg-white border border-gray-200 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center">

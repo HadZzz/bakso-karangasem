@@ -1,28 +1,39 @@
 import { Metadata } from 'next';
 
 export const seoConfig = {
-  title: 'Bakso Murniati - Bakso Legendaris Karangasem Sukoharjo',
-  description: 'Nikmati kelezatan bakso legendaris Bakso Murniati di Karangasem, Sukoharjo. Bakso sapi pilihan dengan kuah gurih dan bumbu rahasia turun temurun sejak 1985.',
+  title: 'Bakso Murniati - Bakso Paling Enak di Sukoharjo Karangasem',
+  description: 'Bakso Murniati adalah bakso paling enak di Sukoharjo! Warung bakso enak di Karangasem sejak 1985. Bakso sapi premium dengan kuah gurih dan bumbu rahasia yang membuat Bakso Murniati menjadi bakso terenak di Sukoharjo.',
   keywords: [
-    'bakso',
-    'bakso murniati', 
-    'karangasem',
-    'sukoharjo',
-    'kuliner solo',
-    'bakso sapi',
-    'makanan tradisional',
-    'warung bakso',
-    'bakso enak',
-    'bakso legendaris'
+    'bakso enak di sukoharjo',
+    'bakso enak di karangasem',
+    'bakso murniati',
+    'bakso paling enak di sukoharjo',
+    'bakso terenak sukoharjo',
+    'warung bakso enak sukoharjo',
+    'bakso enak karangasem sukoharjo',
+    'bakso murniati sukoharjo',
+    'bakso legendaris sukoharjo',
+    'bakso sapi enak sukoharjo',
+    'kuliner enak sukoharjo',
+    'makanan enak di sukoharjo',
+    'warung bakso karangasem',
+    'bakso kuah enak sukoharjo',
+    'bakso jumbo enak sukoharjo'
   ],
   url: 'https://bakso-murniati.vercel.app',
   siteName: 'Bakso Murniati',
   images: [
     {
+      url: '/logo-1024.png',
+      width: 1024,
+      height: 1024,
+      alt: 'Logo Bakso Murniati - Bakso Paling Enak di Sukoharjo Karangasem',
+    },
+    {
       url: 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
       width: 1200,
       height: 630,
-      alt: 'Bakso Murniati - Bakso Legendaris Karangasem Sukoharjo',
+      alt: 'Bakso Murniati - Bakso Paling Enak di Sukoharjo Karangasem',
     },
   ],
   locale: 'id_ID',
@@ -80,6 +91,14 @@ export const generateMetadata = (): Metadata => {
       google: '5mAM5b2AU2ijdyRFKokDSX1NQ6b22MibtjoO2wRlsR8',
       yandex: 'yandex-verification-code',
       yahoo: 'yahoo-site-verification-code',
+    },
+    other: {
+      'business:contact_data:locality': 'Karangasem',
+      'business:contact_data:region': 'Sukoharjo',
+      'business:contact_data:country_name': 'Indonesia',
+      'business:contact_data:phone_number': '+62-271-123-4567',
+      'place:location:latitude': '-7.623456',
+      'place:location:longitude': '110.823456',
     },
   };
 };

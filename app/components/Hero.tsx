@@ -31,11 +31,12 @@ export default function Hero() {
             <span className="text-red-500">Bakso</span> Murniati
           </h1>
           <p className="text-xl md:text-2xl mb-4 text-gray-200">
-            Cita Rasa Legendaris Sejak 1985
+            Bakso Paling Enak di Sukoharjo Sejak 1985
           </p>
           <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            Nikmati kelezatan bakso sapi pilihan dengan kuah gurih dan bumbu rahasia 
-            yang telah menjadi favorit keluarga di Karangasem, Sukoharjo selama puluhan tahun
+            Warung <strong>bakso enak di Karangasem, Sukoharjo</strong> dengan cita rasa legendaris! 
+            <strong>Bakso Murniati</strong> menyajikan <strong>bakso sapi terenak</strong> dengan kuah gurih 
+            dan bumbu rahasia yang membuat kami menjadi <strong>bakso paling enak di Sukoharjo</strong>
           </p>
         </div>
 

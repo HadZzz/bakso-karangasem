@@ -5,10 +5,11 @@ export default function Location() {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-            Kunjungi <span className="text-red-600">Kami</span>
+            Lokasi <span className="text-red-600">Bakso Enak</span> di Karangasem
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Temukan kami di lokasi strategis di Karangasem, Sukoharjo
+            Kunjungi <strong>Bakso Murniati</strong> - <strong>warung bakso paling enak di Sukoharjo</strong> 
+            yang berlokasi strategis di Karangasem. Buktikan sendiri mengapa kami <strong>bakso terenak di Sukoharjo</strong>!
           </p>
           <div className="w-24 h-1 bg-red-600 mx-auto mt-6"></div>
         </div>
