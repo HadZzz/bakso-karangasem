@@ -1,0 +1,28 @@
+User-agent: *
+Allow: /
+
+# Enhanced SEO directives
+Allow: /_next/static/
+Allow: /images/
+Allow: /logo.png
+Allow: /icon-*.png
+Allow: /apple-touch-icon.png
+
+# Block admin areas (if any)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /_next/
+Disallow: /api/
+
+# Important: Sitemap location
+Sitemap: https://bakso-murniati-karangasem.vercel.app/sitemap.xml
+
+# Crawl delay (optional, helps with server load)
+Crawl-delay: 1
+
+# Additional indexing hints
+# This helps search engines understand our primary content
+Allow: /#menu
+Allow: /#about  
+Allow: /#location
+Allow: /#contact

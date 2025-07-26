@@ -4,34 +4,48 @@ export const seoConfig = {
   title: 'Bakso Enak di Sukoharjo - Bakso Murniati Karangasem Terenak Sejak 1985',
   description: 'Bakso enak di Sukoharjo paling terkenal! Warung bakso enak di Karangasem - Bakso Murniati menyajikan bakso terenak sukoharjo sejak 1985. Kuliner enak sukoharjo dengan bakso sapi premium, kuah gurih dan cita rasa legendaris. Warung bakso enak sukoharjo yang wajib dikunjungi!',
   keywords: [
+    // Primary Keywords (High Priority)
     'bakso enak di sukoharjo',
-    'bakso enak di karangasem',
-    'warung bakso enak sukoharjo',
+    'bakso enak sukoharjo',
     'bakso terenak sukoharjo',
-    'kuliner enak sukoharjo',
-    'bakso murniati',
     'bakso paling enak di sukoharjo',
+    'warung bakso enak sukoharjo',
+    
+    // Location-based Keywords
+    'bakso enak di karangasem',
     'bakso enak karangasem sukoharjo',
+    'warung bakso karangasem',
+    'kuliner karangasem sukoharjo',
+    'warung makan enak karangasem',
+    
+    // Brand Keywords
+    'bakso murniati',
     'bakso murniati sukoharjo',
+    'warung bakso murniati',
+    
+    // Long-tail Keywords
+    'kuliner enak sukoharjo',
     'bakso legendaris sukoharjo',
     'bakso sapi enak sukoharjo',
     'makanan enak di sukoharjo',
-    'warung bakso karangasem',
     'bakso kuah enak sukoharjo',
     'bakso jumbo enak sukoharjo',
     'tempat makan enak sukoharjo',
-    'warung makan enak karangasem',
     'bakso enak murah sukoharjo',
     'bakso halal sukoharjo',
     'bakso sapi karangasem',
-    'kuliner karangasem sukoharjo',
     'makanan khas sukoharjo',
     'wisata kuliner sukoharjo',
     'bakso terkenal sukoharjo',
-    'restoran bakso sukoharjo'
+    'restoran bakso sukoharjo',
+    
+    // Additional Local SEO
+    'bakso enak di jawa tengah',
+    'kuliner sukoharjo terkenal',
+    'makanan legendaris sukoharjo'
   ],
   url: 'https://bakso-murniati-karangasem.vercel.app',
-  siteName: 'Bakso Murniati',
+  siteName: 'Bakso Murniati - Bakso Enak di Sukoharjo',
   images: [
     {
       url: '/logo-1024.png',
