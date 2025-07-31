@@ -7,11 +7,11 @@ export default function JsonLd() {
         "@id": "https://bakso-murniati-karangasem.vercel.app/#restaurant",
         "name": "Bakso Murniati - Bakso Paling Enak di Sukoharjo",
         "alternateName": ["Warung Bakso Murniati", "Bakso Enak Karangasem", "Bakso Terenak Sukoharjo"],
-        "description": "Bakso Murniati adalah bakso paling enak di Sukoharjo! Warung bakso enak di Karangasem sejak 1985 dengan cita rasa legendaris yang membuat kami bakso terenak di Sukoharjo",
+        "description": "Bakso Murniati adalah bakso paling enak di Sukoharjo! Warung bakso enak di Karangasem sejak 2015 dengan cita rasa legendaris yang membuat kami bakso terenak di Sukoharjo",
         "url": "https://bakso-murniati-karangasem.vercel.app",
         "telephone": "+62-271-123-4567",
         "email": "hadzipamuji5@gmail.com",
-        "foundingDate": "1985",
+        "foundingDate": "2015",
         "founder": {
           "@type": "Person",
           "name": "Murniati"
@@ -140,7 +140,7 @@ export default function JsonLd() {
         "@type": "LocalBusiness",
         "@id": "https://bakso-murniati-karangasem.vercel.app/#localbusiness",
         "name": "Bakso Murniati - Warung Bakso Enak di Karangasem",
-        "description": "Warung bakso paling enak di Sukoharjo sejak 1985. Bakso Murniati adalah bakso terenak di Karangasem dengan cita rasa legendaris",
+        "description": "Warung bakso paling enak di Sukoharjo sejak 2015. Bakso Murniati adalah bakso terenak di Karangasem dengan cita rasa legendaris",
         "url": "https://bakso-murniati-karangasem.vercel.app",
         "telephone": "+62-271-123-4567",
         "address": {
@@ -167,7 +167,7 @@ export default function JsonLd() {
         "@id": "https://bakso-murniati-karangasem.vercel.app/#website",
         "url": "https://bakso-murniati-karangasem.vercel.app",
         "name": "Bakso Murniati - Bakso Paling Enak di Sukoharjo",
-        "description": "Website resmi Bakso Murniati - Warung bakso enak di Karangasem, Sukoharjo. Bakso terenak dengan cita rasa legendaris sejak 1985",
+        "description": "Website resmi Bakso Murniati - Warung bakso enak di Karangasem, Sukoharjo. Bakso terenak dengan cita rasa legendaris sejak 2015",
         "publisher": {
           "@id": "https://bakso-murniati-karangasem.vercel.app/#restaurant"
         },
@@ -211,7 +211,7 @@ export default function JsonLd() {
           "caption": "Logo Bakso Murniati - Bakso Paling Enak di Sukoharjo"
         },
         "image": "https://bakso-murniati-karangasem.vercel.app/logo-1024.png",
-        "description": "Bakso Murniati adalah warung bakso paling enak di Sukoharjo sejak 1985",
+        "description": "Bakso Murniati adalah warung bakso paling enak di Sukoharjo sejak 2015",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Jl. Raya Karangasem No. 123",

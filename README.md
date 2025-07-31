@@ -1,8 +1,8 @@
 # Bakso Murniati - Bakso Enak di Sukoharjo
 
-## Bakso Paling Enak di Sukoharjo Sejak 1985
+## Bakso Paling Enak di Sukoharjo Sejak 2015
 
-Selamat datang di website resmi **Bakso Murniati**, warung bakso enak di Karangasem, Sukoharjo yang telah melayani dengan cita rasa legendaris sejak 1985.
+Selamat datang di website resmi **Bakso Murniati**, warung bakso enak di Karangasem, Sukoharjo yang telah melayani dengan cita rasa legendaris sejak 2015.
 
 ### Mengapa Bakso Murniati?
 
@@ -10,7 +10,7 @@ Selamat datang di website resmi **Bakso Murniati**, warung bakso enak di Karanga
 - ✅ **Bahan Premium** - Daging sapi pilihan dan bumbu berkualitas tinggi  
 - ✅ **Lokasi Strategis** - Mudah dijangkau di Karangasem, Sukoharjo
 - ✅ **Harga Terjangkau** - Mulai dari Rp 15.000 untuk porsi lengkap
-- ✅ **Pengalaman 38+ Tahun** - Dipercaya keluarga Indonesia sejak 1985
+- ✅ **Pengalaman 8+ Tahun** - Dipercaya keluarga Indonesia sejak 2015
 
 ### Menu Unggulan
 

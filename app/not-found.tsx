@@ -67,7 +67,7 @@ export default function NotFound() {
             <div className="w-8 h-8 bg-gradient-to-br from-red-600 to-red-800 rounded-full flex items-center justify-center">
               <span className="text-white font-bold text-sm">BM</span>
             </div>
-            <span className="text-sm">Bakso Murniati - Sejak 1985</span>
+            <span className="text-sm">Bakso Murniati - Sejak 2015</span>
           </div>
         </div>
       </div>

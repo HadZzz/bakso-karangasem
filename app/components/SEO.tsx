@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 
 export const seoConfig = {
-  title: 'Bakso Enak di Sukoharjo - Bakso Murniati Karangasem Terenak Sejak 1985',
-  description: 'Bakso enak di Sukoharjo paling terkenal! Warung bakso enak di Karangasem - Bakso Murniati menyajikan bakso terenak sukoharjo sejak 1985. Kuliner enak sukoharjo dengan bakso sapi premium, kuah gurih dan cita rasa legendaris. Warung bakso enak sukoharjo yang wajib dikunjungi!',
+  title: 'Bakso Enak di Sukoharjo - Bakso Murniati Karangasem Terenak Sejak 2015',
+  description: 'Bakso enak di Sukoharjo paling terkenal! Warung bakso enak di Karangasem - Bakso Murniati menyajikan bakso terenak sukoharjo sejak 2015. Kuliner enak sukoharjo dengan bakso sapi premium, kuah gurih dan cita rasa legendaris. Warung bakso enak sukoharjo yang wajib dikunjungi!',
   keywords: [
     // Primary Keywords (High Priority)
     'bakso enak di sukoharjo',

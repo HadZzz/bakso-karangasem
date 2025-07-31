@@ -27,7 +27,7 @@ export default function InternalLinks() {
                 </a>
               </h3>
               <p className="text-gray-600 text-sm">
-                Pelajari sejarah <strong>warung bakso enak di karangasem</strong> sejak 1985
+                Pelajari sejarah <strong>warung bakso enak di karangasem</strong> sejak 2015
               </p>
             </div>
             
@@ -81,7 +81,7 @@ export default function InternalLinks() {
             <p className="text-gray-600 leading-relaxed max-w-3xl mx-auto">
               <strong className="text-gray-800">Bakso Murniati</strong> adalah pilihan terbaik untuk 
               <strong className="text-red-600"> bakso enak di Sukoharjo</strong>. Sebagai 
-              <strong> warung bakso enak di Karangasem</strong> yang telah berpengalaman sejak 1985, 
+              <strong> warung bakso enak di Karangasem</strong> yang telah berpengalaman sejak 2015, 
               kami menyajikan <strong>bakso terenak sukoharjo</strong> dengan kualitas terjamin. 
               Kunjungi <strong>kuliner enak sukoharjo</strong> yang satu ini dan rasakan perbedaannya!
             </p>

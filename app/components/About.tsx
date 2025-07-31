@@ -15,7 +15,7 @@ export default function About() {
             <div className="space-y-6 text-gray-600 leading-relaxed">
               <p className="text-lg">
                 <strong className="text-gray-800">Bakso Murniati</strong> telah menjadi <strong className="text-red-600">bakso paling enak di Sukoharjo</strong> 
-                sejak tahun <strong className="text-red-600">1985</strong>. Sebagai <strong>warung bakso enak di Karangasem</strong>, 
+                sejak tahun <strong className="text-red-600">2015</strong>. Sebagai <strong>warung bakso enak di Karangasem</strong>, 
                 kami telah melayani ribuan pelanggan yang mengakui bahwa <strong>Bakso Murniati adalah bakso terenak di Sukoharjo</strong> 
                 dengan cita rasa autentik yang tak terlupakan.
               </p>
@@ -88,7 +88,7 @@ export default function About() {
             {/* Floating Card */}
             <div className="absolute -bottom-6 -left-6 bg-red-600 text-white p-6 rounded-2xl shadow-xl">
               <div className="text-center">
-                <div className="text-2xl font-bold">1985</div>
+                <div className="text-2xl font-bold">2015</div>
                 <div className="text-sm">Tahun Berdiri</div>
               </div>
             </div>

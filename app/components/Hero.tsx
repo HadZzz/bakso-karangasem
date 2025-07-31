@@ -31,7 +31,7 @@ export default function Hero() {
             <span className="text-red-500">Bakso</span> Murniati
           </h1>
           <p className="text-xl md:text-2xl mb-4 text-gray-200">
-            Bakso Paling Enak di Sukoharjo Sejak 1985
+            Bakso Paling Enak di Sukoharjo Sejak 2015
           </p>
           <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
             Warung <strong>bakso enak di Karangasem, Sukoharjo</strong> dengan cita rasa legendaris! 

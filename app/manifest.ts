@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'Bakso Murniati - Bakso Paling Enak di Sukoharjo Karangasem',
     short_name: 'Bakso Murniati',
-    description: 'Bakso Murniati adalah bakso paling enak di Sukoharjo! Warung bakso enak di Karangasem sejak 1985 dengan cita rasa terenak',
+    description: 'Bakso Murniati adalah bakso paling enak di Sukoharjo! Warung bakso enak di Karangasem sejak 2015 dengan cita rasa terenak',
     start_url: '/',
     display: 'standalone',
     background_color: '#ffffff',

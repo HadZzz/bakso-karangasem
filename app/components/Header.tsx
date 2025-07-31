@@ -50,7 +50,7 @@ export default function Header() {
                 Bakso Murniati
               </h1>
               <p className={`text-sm ${isScrolled ? 'text-gray-600' : 'text-gray-200'}`}>
-                Sejak 1985
+                Sejak 2015
               </p>
             </div>
           </div>

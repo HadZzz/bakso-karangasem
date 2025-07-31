@@ -3,7 +3,7 @@ export default function Blog() {
     {
       id: 1,
       title: "Mengapa Bakso Enak di Sukoharjo Hanya Ada di Bakso Murniati?",
-      excerpt: "Temukan rahasia mengapa warung bakso enak sukoharjo kami menjadi yang terdepan dalam menyajikan kuliner enak sukoharjo sejak 1985.",
+      excerpt: "Temukan rahasia mengapa warung bakso enak sukoharjo kami menjadi yang terdepan dalam menyajikan kuliner enak sukoharjo sejak 2015.",
       slug: "bakso-enak-di-sukoharjo-bakso-murniati",
       date: "2024-01-15",
       image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"

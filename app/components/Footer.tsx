@@ -23,7 +23,7 @@ export default function Footer() {
               </div>
               <div>
                 <h3 className="text-xl font-bold">Bakso Murniati</h3>
-                <p className="text-gray-400 text-sm">Sejak 1985</p>
+                <p className="text-gray-400 text-sm">Sejak 2015</p>
               </div>
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">

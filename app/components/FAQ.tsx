@@ -6,7 +6,7 @@ const faqData = [
   {
     id: 1,
     question: "Mengapa Bakso Murniati disebut bakso paling enak di Sukoharjo?",
-    answer: "Bakso Murniati telah menjadi bakso paling enak di Sukoharjo sejak 1985 karena menggunakan resep rahasia turun temurun, daging sapi pilihan premium, dan bumbu alami tanpa pengawet. Ribuan pelanggan mengakui bahwa Bakso Murniati adalah bakso terenak di Sukoharjo dengan cita rasa yang tak terlupakan."
+    answer: "Bakso Murniati telah menjadi bakso paling enak di Sukoharjo sejak 2015 karena menggunakan resep rahasia turun temurun, daging sapi pilihan premium, dan bumbu alami tanpa pengawet. Ribuan pelanggan mengakui bahwa Bakso Murniati adalah bakso terenak di Sukoharjo dengan cita rasa yang tak terlupakan."
   },
   {
     id: 2,
@@ -16,7 +16,7 @@ const faqData = [
   {
     id: 3,
     question: "Apa yang membuat Bakso Murniati berbeda dari bakso lain di Sukoharjo?",
-    answer: "Yang membuat Bakso Murniati menjadi bakso enak di Sukoharjo adalah penggunaan daging sapi pilihan premium, kuah kaldu yang dimasak selama berjam-jam, dan bumbu rahasia yang diwariskan turun temurun sejak 1985. Setiap bakso dibuat fresh setiap hari dengan standar kualitas tinggi."
+    answer: "Yang membuat Bakso Murniati menjadi bakso enak di Sukoharjo adalah penggunaan daging sapi pilihan premium, kuah kaldu yang dimasak selama berjam-jam, dan bumbu rahasia yang diwariskan turun temurun sejak 2015. Setiap bakso dibuat fresh setiap hari dengan standar kualitas tinggi."
   },
   {
     id: 4,
