@@ -17,7 +17,7 @@ const testimonials = [
     location: "Karangasem",
     rating: 5,
     text: "Sebagai warga Karangasem, saya bangga punya warung bakso enak seperti Bakso Murniati. Kuahnya gurih banget dan baksonya kenyal. Memang bakso terenak di Sukoharjo!",
-    avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
   },
   {
     id: 3,
@@ -94,6 +94,7 @@ export default function Testimonials() {
                     src={testimonial.avatar}
                     alt={testimonial.name}
                     fill
+                    sizes="48px"
                     className="object-cover"
                   />
                 </div>

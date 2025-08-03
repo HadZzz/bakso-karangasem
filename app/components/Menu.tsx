@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { MenuItem } from "../../types/menu";
 import dynamic from "next/dynamic";
 
 // Dynamic import MenuClient to avoid SSR issues
@@ -15,48 +14,7 @@ const MenuClient = dynamic(() => import("./MenuClient"), {
   )
 });
 
-// Static fallback menu items for build time and when database is unavailable
-const fallbackItems: MenuItem[] = [
-  {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    _id: "fallback-1" as any,
-    name: "Bakso Spesial Murniati",
-    description: "Bakso sapi premium dengan kuah gurih dan bumbu rahasia",
-    price: 15000,
-    category: "bakso" as const,
-    image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    available: true,
-    popular: true,
-    createdAt: Date.now(),
-    updatedAt: Date.now()
-  },
-  {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    _id: "fallback-2" as any,
-    name: "Bakso Urat",
-    description: "Bakso dengan urat sapi yang kenyal dan lezat",
-    price: 18000,
-    category: "bakso" as const,
-    image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    available: true,
-    popular: false,
-    createdAt: Date.now(),
-    updatedAt: Date.now()
-  },
-  {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    _id: "fallback-3" as any,
-    name: "Bakso Tahu",
-    description: "Kombinasi bakso dan tahu goreng yang lezat",
-    price: 12000,
-    category: "bakso" as const,
-    image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    available: true,
-    popular: false,
-    createdAt: Date.now(),
-    updatedAt: Date.now()
-  }
-];
+// No static fallback items to prevent flickering
 
 export default function Menu() {
   const [isClient, setIsClient] = useState(false);
@@ -82,51 +40,12 @@ export default function Menu() {
 
         {/* Menu Content - Only render on client side */}
         {isClient ? (
-          <MenuClient fallbackItems={fallbackItems} />
+          <MenuClient />
         ) : (
-          // Static content for SSR/build time
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {fallbackItems.map((item: MenuItem) => (
-              <div 
-                key={item._id} 
-                className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
-              >
-                {/* Image */}
-                <div className="relative h-48 overflow-hidden">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={typeof item.image === 'string' ? item.image : ''}
-                    alt={item.name}
-                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
-                  />
-                  {item.popular && (
-                    <div className="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                      Populer
-                    </div>
-                  )}
-                </div>
-
-                {/* Content */}
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">{item.name}</h3>
-                  <p className="text-gray-600 mb-4 leading-relaxed">{item.description}</p>
-                  
-                  <div className="flex items-center justify-between">
-                    <span className="text-2xl font-bold text-red-600">
-                      Rp {item.price.toLocaleString()}
-                    </span>
-                    <a 
-                      href="https://wa.me/62085876120167" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-full transition-colors duration-300 inline-block text-center"
-                    >
-                      Pesan
-                    </a>
-                  </div>
-                </div>
-              </div>
-            ))}
+          // Loading placeholder for SSR
+          <div className="flex items-center justify-center h-64">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600"></div>
+            <span className="ml-3 text-gray-600">Loading menu...</span>
           </div>
         )}
 

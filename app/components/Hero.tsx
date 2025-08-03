@@ -18,6 +18,7 @@ export default function Hero() {
           src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80"
           alt="Bakso enak di Sukoharjo - Warung bakso enak Karangasem Bakso Murniati"
           fill
+          sizes="100vw"
           className="object-cover"
           priority
         />

@@ -3,62 +3,33 @@
 import { useConvexQuery } from "../hooks/useConvexQuery";
 import { api } from "../../convex/_generated/api";
 import ConvexImage from "./ConvexImage";
-import { useEffect, useState } from "react";
 import { MenuItem } from "../../types/menu";
 
 interface MenuClientProps {
-  fallbackItems: MenuItem[];
+  fallbackItems?: MenuItem[];
 }
 
-export default function MenuClient({ fallbackItems }: MenuClientProps) {
-  const [showDatabase, setShowDatabase] = useState(false);
-  
-  useEffect(() => {
-    // Only try to load database data after component mounts
-    const timer = setTimeout(() => {
-      setShowDatabase(true);
-    }, 100);
-    
-    return () => clearTimeout(timer);
-  }, []);
-
+export default function MenuClient({ fallbackItems = [] }: MenuClientProps) {
   // Always call useConvexQuery - never conditionally
   const convexMenuItems = useConvexQuery(api.menu.getAvailable);
   
   // Determine what to display
-  const displayItems = (convexMenuItems && convexMenuItems.length > 0) 
-    ? convexMenuItems 
+  const displayItems = (convexMenuItems && convexMenuItems.length > 0)
+    ? convexMenuItems
     : fallbackItems;
 
-  const isLoading = showDatabase && convexMenuItems === undefined;
+  const isLoading = convexMenuItems === undefined;
 
   return (
     <>
-      {/* Data Source Indicator - Only show in development */}
-      {process.env.NODE_ENV === 'development' && showDatabase && (
-        <div className="text-center mb-4">
-          <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${
-            convexMenuItems && convexMenuItems.length > 0 
-              ? 'bg-green-100 text-green-800' 
-              : 'bg-yellow-100 text-yellow-800'
-          }`}>
-            {convexMenuItems && convexMenuItems.length > 0 
-              ? `📊 Live Data (${convexMenuItems.length} items from database)` 
-              : '📋 Fallback Data (database not available)'}
-          </span>
-        </div>
-      )}
-
       {/* Loading State */}
-      {isLoading && (
+      {isLoading ? (
         <div className="flex items-center justify-center h-64">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600"></div>
-          <span className="ml-3 text-gray-600">Loading menu from database...</span>
+          <span className="ml-3 text-gray-600">Loading menu...</span>
         </div>
-      )}
-
-      {/* Menu Grid */}
-      {!isLoading && displayItems.length > 0 ? (
+      ) : displayItems.length > 0 ? (
+        /* Menu Grid */
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {displayItems.map((item: MenuItem) => (
             <div 
@@ -102,7 +73,7 @@ export default function MenuClient({ fallbackItems }: MenuClientProps) {
             </div>
           ))}
         </div>
-      ) : !isLoading ? (
+      ) : (
         <div className="text-center py-12">
           <div className="mx-auto h-12 w-12 text-gray-400 mb-4">
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -112,7 +83,7 @@ export default function MenuClient({ fallbackItems }: MenuClientProps) {
           <h3 className="text-lg font-medium text-gray-900 mb-2">Belum Ada Menu</h3>
           <p className="text-gray-500">Menu akan muncul setelah admin menambahkan dari dashboard.</p>
         </div>
-      ) : null}
+      )}
     </>
   );
 }

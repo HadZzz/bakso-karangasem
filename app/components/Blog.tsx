@@ -55,6 +55,7 @@ export default function Blog() {
                   src={article.image}
                   alt={article.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover transition-transform duration-300 hover:scale-110"
                 />
               </div>

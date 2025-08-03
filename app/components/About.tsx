@@ -61,6 +61,7 @@ export default function About() {
                   src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                   alt="Warung bakso enak di Karangasem - Bakso terenak Sukoharjo Bakso Murniati"
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
                 />
               </div>
@@ -71,6 +72,7 @@ export default function About() {
                   src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
                   alt="Proses pembuatan bakso enak di Sukoharjo - Kuliner enak Sukoharjo"
                   fill
+                  sizes="(max-width: 768px) 50vw, 25vw"
                   className="object-cover"
                 />
               </div>
@@ -80,6 +82,7 @@ export default function About() {
                   src="https://images.unsplash.com/photo-1551782450-17144efb9c50?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
                   alt="Bahan berkualitas bakso sapi Karangasem - Warung bakso enak Sukoharjo"
                   fill
+                  sizes="(max-width: 768px) 50vw, 25vw"
                   className="object-cover"
                 />
               </div>
