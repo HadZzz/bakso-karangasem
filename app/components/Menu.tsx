@@ -1,57 +1,64 @@
 "use client";
 
-import { useQuery } from "convex/react";
-import { api } from "../../convex/_generated/api";
 import ConvexImage from "./ConvexImage";
 import { useEffect, useState } from "react";
+import { MenuItem } from "../../types/menu";
 
+// Static fallback menu items for build time and when Convex is not available
+const fallbackItems: MenuItem[] = [
+  {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    _id: "fallback-1" as any,
+    name: "Bakso Spesial Murniati",
+    description: "Bakso sapi premium dengan kuah gurih dan bumbu rahasia",
+    price: 15000,
+    category: "bakso" as const,
+    image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    available: true,
+    popular: true,
+    createdAt: Date.now(),
+    updatedAt: Date.now()
+  },
+  {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    _id: "fallback-2" as any,
+    name: "Bakso Urat",
+    description: "Bakso dengan urat sapi yang kenyal dan lezat",
+    price: 18000,
+    category: "bakso" as const,
+    image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    available: true,
+    popular: false,
+    createdAt: Date.now(),
+    updatedAt: Date.now()
+  },
+  {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    _id: "fallback-3" as any,
+    name: "Bakso Tahu",
+    description: "Kombinasi bakso dan tahu goreng yang lezat",
+    price: 12000,
+    category: "bakso" as const,
+    image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    available: true,
+    popular: false,
+    createdAt: Date.now(),
+    updatedAt: Date.now()
+  }
+];
 
 export default function Menu() {
-  const [isClient, setIsClient] = useState(false);
-  
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  const [menuItems] = useState<MenuItem[]>(fallbackItems);
+  const [isLoading, setIsLoading] = useState(true);
 
-  // Fetch available menu items from Convex with fallback
-  let menuItems;
-  try {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    menuItems = isClient ? useQuery(api.menu.getAvailable) : undefined;
-  } catch {
-    menuItems = undefined;
-  }
-  
-  // Fallback menu items for build time or when Convex is not available
-  const fallbackItems = [
-    {
-      _id: "fallback-1",
-      name: "Bakso Spesial Murniati",
-      description: "Bakso sapi premium dengan kuah gurih dan bumbu rahasia",
-      price: 15000,
-      category: "bakso" as const,
-      image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      available: true,
-      popular: true,
-      createdAt: Date.now(),
-      updatedAt: Date.now()
-    },
-    {
-      _id: "fallback-2",
-      name: "Bakso Urat",
-      description: "Bakso dengan urat sapi yang kenyal dan lezat",
-      price: 18000,
-      category: "bakso" as const,
-      image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      available: true,
-      popular: false,
-      createdAt: Date.now(),
-      updatedAt: Date.now()
-    }
-  ];
-  
-  // Use menu items from database or fallback
-  const displayItems = menuItems || fallbackItems;
+  useEffect(() => {
+    // Simulate loading and then show fallback items
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <section id="menu" className="py-20 bg-gray-50">
@@ -69,16 +76,16 @@ export default function Menu() {
         </div>
 
         {/* Loading State */}
-        {menuItems === undefined && (
+        {isLoading && (
           <div className="flex items-center justify-center h-64">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600"></div>
           </div>
         )}
 
         {/* Menu Grid */}
-        {displayItems.length > 0 ? (
+        {!isLoading && menuItems.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {displayItems.map((item) => (
+            {menuItems.map((item: MenuItem) => (
               <div 
                 key={item._id} 
                 className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
@@ -120,7 +127,7 @@ export default function Menu() {
               </div>
             ))}
           </div>
-        ) : (
+        ) : !isLoading ? (
           <div className="text-center py-12">
             <div className="mx-auto h-12 w-12 text-gray-400 mb-4">
               <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -130,7 +137,7 @@ export default function Menu() {
             <h3 className="text-lg font-medium text-gray-900 mb-2">Belum Ada Menu</h3>
             <p className="text-gray-500">Menu akan muncul setelah admin menambahkan dari dashboard.</p>
           </div>
-        )}
+        ) : null}
 
         {/* Additional Info */}
         <div className="mt-16 bg-white rounded-2xl p-8 shadow-lg">

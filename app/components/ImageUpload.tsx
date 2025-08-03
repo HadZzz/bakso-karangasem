@@ -141,6 +141,7 @@ export default function ImageUpload({ currentImage, onImageChange, className = "
           {preview || storageId || currentImage ? (
             <div className="relative w-full h-full">
               {preview ? (
+                // eslint-disable-next-line @next/next/no-img-element
                 <img
                   src={preview}
                   alt="Preview"
