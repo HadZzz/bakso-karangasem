@@ -24,7 +24,7 @@ export default function Blog() {
       excerpt: "Jelajahi kuliner enak sukoharjo dengan panduan lengkap tempat makan enak sukoharjo yang wajib dikunjungi.",
       slug: "kuliner-enak-sukoharjo-panduan-wisata",
       date: "2024-01-05",
-      image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
     }
   ];
 

@@ -22,7 +22,7 @@ export default function ConvexImage({
   className = "", 
   width, 
   height,
-  fallbackSrc = "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+  fallbackSrc = "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
 }: ConvexImageProps) {
   // Function to extract actual image URL from Google Images redirect URL
   const extractImageUrl = (googleUrl: string): string => {

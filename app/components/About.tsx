@@ -68,7 +68,7 @@ export default function About() {
               {/* Small Images */}
               <div className="relative h-32 rounded-2xl overflow-hidden shadow-lg">
                 <Image
-                  src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                  src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
                   alt="Proses pembuatan bakso enak di Sukoharjo - Kuliner enak Sukoharjo"
                   fill
                   className="object-cover"
