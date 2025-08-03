@@ -3,11 +3,24 @@
 import { useQuery } from "convex/react";
 import { api } from "../../convex/_generated/api";
 import ConvexImage from "./ConvexImage";
+import { useEffect, useState } from "react";
 
 
 export default function Menu() {
+  const [isClient, setIsClient] = useState(false);
+  
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   // Fetch available menu items from Convex with fallback
-  const menuItems = useQuery(api.menu.getAvailable);
+  let menuItems;
+  try {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    menuItems = isClient ? useQuery(api.menu.getAvailable) : undefined;
+  } catch {
+    menuItems = undefined;
+  }
   
   // Fallback menu items for build time or when Convex is not available
   const fallbackItems = [
