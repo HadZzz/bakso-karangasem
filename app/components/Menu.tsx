@@ -1,57 +1,17 @@
-import Image from 'next/image';
+"use client";
 
-const menuItems = [
-  {
-    id: 1,
-    name: 'Bakso Spesial Murniati',
-    description: 'Bakso enak khas Murniati dengan isian telur puyuh, tahu, dan sayuran segar. Menu andalan yang membuat kami bakso terenak di Sukoharjo!',
-    price: 'Rp 15.000',
-    image: 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    popular: true
-  },
-  {
-    id: 2,
-    name: 'Bakso Jumbo Enak',
-    description: 'Bakso jumbo berukuran extra dengan daging sapi premium dan kuah gurih khas Bakso Murniati yang enak',
-    price: 'Rp 18.000',
-    image: 'https://images.unsplash.com/photo-1585032226651-759b368d7246?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    popular: false
-  },
-  {
-    id: 3,
-    name: 'Bakso Urat',
-    description: 'Bakso dengan campuran urat sapi yang kenyal dan gurih',
-    price: 'Rp 16.000',
-    image: 'https://images.unsplash.com/photo-1563379091339-03246963d51a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    popular: false
-  },
-  {
-    id: 4,
-    name: 'Bakso Keju',
-    description: 'Inovasi terbaru dengan isian keju mozzarella yang meleleh',
-    price: 'Rp 20.000',
-    image: 'https://images.unsplash.com/photo-1551782450-17144efb9c50?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    popular: true
-  },
-  {
-    id: 5,
-    name: 'Mie Ayam Bakso',
-    description: 'Kombinasi mie ayam dengan bakso sapi dalam satu mangkuk',
-    price: 'Rp 17.000',
-    image: 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    popular: false
-  },
-  {
-    id: 6,
-    name: 'Bakso Bakar',
-    description: 'Bakso yang dibakar dengan bumbu khas dan sambal pedas',
-    price: 'Rp 19.000',
-    image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    popular: true
-  }
-];
+import { useQuery } from "convex/react";
+import { api } from "../../convex/_generated/api";
+import ConvexImage from "./ConvexImage";
+
 
 export default function Menu() {
+  // Fetch available menu items from Convex
+  const menuItems = useQuery(api.menu.getAvailable);
+  
+  // Use menu items from database
+  const displayItems = menuItems || [];
+
   return (
     <section id="menu" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
@@ -67,48 +27,69 @@ export default function Menu() {
           <div className="w-24 h-1 bg-red-600 mx-auto mt-6"></div>
         </div>
 
-        {/* Menu Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {menuItems.map((item) => (
-            <div 
-              key={item.id} 
-              className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
-            >
-              {/* Image */}
-              <div className="relative h-48 overflow-hidden">
-                <Image
-                  src={item.image}
-                  alt={item.name}
-                  fill
-                  className="object-cover transition-transform duration-300 hover:scale-110"
-                />
-                {item.popular && (
-                  <div className="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                    Populer
-                  </div>
-                )}
-              </div>
+        {/* Loading State */}
+        {menuItems === undefined && (
+          <div className="flex items-center justify-center h-64">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600"></div>
+          </div>
+        )}
 
-              {/* Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-800 mb-2">{item.name}</h3>
-                <p className="text-gray-600 mb-4 leading-relaxed">{item.description}</p>
-                
-                <div className="flex items-center justify-between">
-                  <span className="text-2xl font-bold text-red-600">{item.price}</span>
-                  <a 
-                    href="https://wa.me/62085876120167" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-full transition-colors duration-300 inline-block text-center"
-                  >
-                    Pesan
-                  </a>
+        {/* Menu Grid */}
+        {displayItems.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {displayItems.map((item) => (
+              <div 
+                key={item._id} 
+                className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+              >
+                {/* Image */}
+                <div className="relative h-48 overflow-hidden">
+                  <ConvexImage
+                    storageId={item.image}
+                    alt={item.name}
+                    fill
+                    className="object-cover transition-transform duration-300 hover:scale-110"
+                  />
+                  {item.popular && (
+                    <div className="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                      Populer
+                    </div>
+                  )}
+                </div>
+
+                {/* Content */}
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-800 mb-2">{item.name}</h3>
+                  <p className="text-gray-600 mb-4 leading-relaxed">{item.description}</p>
+                  
+                  <div className="flex items-center justify-between">
+                    <span className="text-2xl font-bold text-red-600">
+                      Rp {item.price.toLocaleString()}
+                    </span>
+                    <a 
+                      href="https://wa.me/62085876120167" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-full transition-colors duration-300 inline-block text-center"
+                    >
+                      Pesan
+                    </a>
+                  </div>
                 </div>
               </div>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-12">
+            <div className="mx-auto h-12 w-12 text-gray-400 mb-4">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+              </svg>
             </div>
-          ))}
-        </div>
+            <h3 className="text-lg font-medium text-gray-900 mb-2">Belum Ada Menu</h3>
+            <p className="text-gray-500">Menu akan muncul setelah admin menambahkan dari dashboard.</p>
+          </div>
+        )}
 
         {/* Additional Info */}
         <div className="mt-16 bg-white rounded-2xl p-8 shadow-lg">

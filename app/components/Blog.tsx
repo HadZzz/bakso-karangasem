@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function Blog() {
   const articles = [
     {
@@ -49,10 +51,11 @@ export default function Blog() {
               className="bg-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
             >
               <div className="relative h-48 overflow-hidden">
-                <img
+                <Image
                   src={article.image}
                   alt={article.title}
-                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                  fill
+                  className="object-cover transition-transform duration-300 hover:scale-110"
                 />
               </div>
               
