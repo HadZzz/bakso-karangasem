@@ -1,10 +1,12 @@
 "use client";
 
+import { useQuery } from "convex/react";
+import { api } from "../../convex/_generated/api";
 import ConvexImage from "./ConvexImage";
 import { useEffect, useState } from "react";
 import { MenuItem } from "../../types/menu";
 
-// Static fallback menu items for build time and when Convex is not available
+// Static fallback menu items ONLY for build time
 const fallbackItems: MenuItem[] = [
   {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -48,17 +50,48 @@ const fallbackItems: MenuItem[] = [
 ];
 
 export default function Menu() {
-  const [menuItems] = useState<MenuItem[]>(fallbackItems);
-  const [isLoading, setIsLoading] = useState(true);
-
+  const [isHydrated, setIsHydrated] = useState(false);
+  const [showFallback, setShowFallback] = useState(true);
+  
   useEffect(() => {
-    // Simulate loading and then show fallback items
+    setIsHydrated(true);
+    // Give some time for Convex to load, then hide fallback if data is available
     const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 500);
-
+      setShowFallback(false);
+    }, 1000);
+    
     return () => clearTimeout(timer);
   }, []);
+
+  // Always call useQuery - never conditionally
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const convexMenuItems: MenuItem[] | undefined = useQuery(api.menu.getAvailable);
+  
+  // Determine what to display:
+  // 1. During build time (not hydrated): use fallback
+  // 2. After hydration with Convex data: use Convex data
+  // 3. After hydration without Convex data: use fallback
+  const displayItems = (() => {
+    if (!isHydrated) {
+      // Build time - use fallback
+      return fallbackItems;
+    }
+    
+    if (convexMenuItems && convexMenuItems.length > 0) {
+      // Runtime with Convex data - use database data
+      return convexMenuItems;
+    }
+    
+    if (!showFallback && (!convexMenuItems || convexMenuItems.length === 0)) {
+      // Runtime but no Convex data available - use fallback
+      return fallbackItems;
+    }
+    
+    // Still loading Convex data
+    return convexMenuItems || fallbackItems;
+  })();
+
+  const isLoading = isHydrated && showFallback && !convexMenuItems;
 
   return (
     <section id="menu" className="py-20 bg-gray-50">
@@ -75,17 +108,33 @@ export default function Menu() {
           <div className="w-24 h-1 bg-red-600 mx-auto mt-6"></div>
         </div>
 
+        {/* Data Source Indicator - Only show in development */}
+        {process.env.NODE_ENV === 'development' && isHydrated && (
+          <div className="text-center mb-4">
+            <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${
+              convexMenuItems && convexMenuItems.length > 0 
+                ? 'bg-green-100 text-green-800' 
+                : 'bg-yellow-100 text-yellow-800'
+            }`}>
+              {convexMenuItems && convexMenuItems.length > 0 
+                ? `📊 Live Data (${convexMenuItems.length} items from database)` 
+                : '📋 Fallback Data (database not available)'}
+            </span>
+          </div>
+        )}
+
         {/* Loading State */}
         {isLoading && (
           <div className="flex items-center justify-center h-64">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600"></div>
+            <span className="ml-3 text-gray-600">Loading menu from database...</span>
           </div>
         )}
 
         {/* Menu Grid */}
-        {!isLoading && menuItems.length > 0 ? (
+        {!isLoading && displayItems.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {menuItems.map((item: MenuItem) => (
+            {displayItems.map((item: MenuItem) => (
               <div 
                 key={item._id} 
                 className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
