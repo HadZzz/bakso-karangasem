@@ -91,7 +91,7 @@ export default function ImageUpload({ currentImage, onImageChange, className = "
 
       // Get upload URL from Convex
       setUploadProgress('Getting upload URL...');
-      const uploadUrl = await generateUploadUrl();
+      const uploadUrl = await generateUploadUrl({});
 
       // Upload compressed file to Convex
       setUploadProgress('Uploading to server...');
