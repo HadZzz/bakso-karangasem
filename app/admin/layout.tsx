@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
+import AdminWrapper from "../components/AdminWrapper";
 
 interface Admin {
   email: string;
@@ -54,6 +55,7 @@ export default function AdminLayout({
   }
 
   return (
+    <AdminWrapper>
     <div className="min-h-screen bg-gray-50">
       {/* Navigation */}
       <nav className="bg-white shadow-sm border-b border-gray-200">
@@ -110,5 +112,6 @@ export default function AdminLayout({
         {children}
       </main>
     </div>
+    </AdminWrapper>
   );
 }

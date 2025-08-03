@@ -6,11 +6,39 @@ import ConvexImage from "./ConvexImage";
 
 
 export default function Menu() {
-  // Fetch available menu items from Convex
+  // Fetch available menu items from Convex with fallback
   const menuItems = useQuery(api.menu.getAvailable);
   
-  // Use menu items from database
-  const displayItems = menuItems || [];
+  // Fallback menu items for build time or when Convex is not available
+  const fallbackItems = [
+    {
+      _id: "fallback-1",
+      name: "Bakso Spesial Murniati",
+      description: "Bakso sapi premium dengan kuah gurih dan bumbu rahasia",
+      price: 15000,
+      category: "bakso" as const,
+      image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      available: true,
+      popular: true,
+      createdAt: Date.now(),
+      updatedAt: Date.now()
+    },
+    {
+      _id: "fallback-2",
+      name: "Bakso Urat",
+      description: "Bakso dengan urat sapi yang kenyal dan lezat",
+      price: 18000,
+      category: "bakso" as const,
+      image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      available: true,
+      popular: false,
+      createdAt: Date.now(),
+      updatedAt: Date.now()
+    }
+  ];
+  
+  // Use menu items from database or fallback
+  const displayItems = menuItems || fallbackItems;
 
   return (
     <section id="menu" className="py-20 bg-gray-50">
