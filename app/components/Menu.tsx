@@ -1,12 +1,21 @@
 "use client";
 
-import { useQuery } from "convex/react";
-import { api } from "../../convex/_generated/api";
-import ConvexImage from "./ConvexImage";
 import { useEffect, useState } from "react";
 import { MenuItem } from "../../types/menu";
+import dynamic from "next/dynamic";
 
-// Static fallback menu items ONLY for build time
+// Dynamic import MenuClient to avoid SSR issues
+const MenuClient = dynamic(() => import("./MenuClient"), {
+  ssr: false,
+  loading: () => (
+    <div className="flex items-center justify-center h-64">
+      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600"></div>
+      <span className="ml-3 text-gray-600">Loading menu...</span>
+    </div>
+  )
+});
+
+// Static fallback menu items for build time and when database is unavailable
 const fallbackItems: MenuItem[] = [
   {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -50,48 +59,11 @@ const fallbackItems: MenuItem[] = [
 ];
 
 export default function Menu() {
-  const [isHydrated, setIsHydrated] = useState(false);
-  const [showFallback, setShowFallback] = useState(true);
-  
+  const [isClient, setIsClient] = useState(false);
+
   useEffect(() => {
-    setIsHydrated(true);
-    // Give some time for Convex to load, then hide fallback if data is available
-    const timer = setTimeout(() => {
-      setShowFallback(false);
-    }, 1000);
-    
-    return () => clearTimeout(timer);
+    setIsClient(true);
   }, []);
-
-  // Always call useQuery - never conditionally
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const convexMenuItems: MenuItem[] | undefined = useQuery(api.menu.getAvailable);
-  
-  // Determine what to display:
-  // 1. During build time (not hydrated): use fallback
-  // 2. After hydration with Convex data: use Convex data
-  // 3. After hydration without Convex data: use fallback
-  const displayItems = (() => {
-    if (!isHydrated) {
-      // Build time - use fallback
-      return fallbackItems;
-    }
-    
-    if (convexMenuItems && convexMenuItems.length > 0) {
-      // Runtime with Convex data - use database data
-      return convexMenuItems;
-    }
-    
-    if (!showFallback && (!convexMenuItems || convexMenuItems.length === 0)) {
-      // Runtime but no Convex data available - use fallback
-      return fallbackItems;
-    }
-    
-    // Still loading Convex data
-    return convexMenuItems || fallbackItems;
-  })();
-
-  const isLoading = isHydrated && showFallback && !convexMenuItems;
 
   return (
     <section id="menu" className="py-20 bg-gray-50">
@@ -108,44 +80,24 @@ export default function Menu() {
           <div className="w-24 h-1 bg-red-600 mx-auto mt-6"></div>
         </div>
 
-        {/* Data Source Indicator - Only show in development */}
-        {process.env.NODE_ENV === 'development' && isHydrated && (
-          <div className="text-center mb-4">
-            <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${
-              convexMenuItems && convexMenuItems.length > 0 
-                ? 'bg-green-100 text-green-800' 
-                : 'bg-yellow-100 text-yellow-800'
-            }`}>
-              {convexMenuItems && convexMenuItems.length > 0 
-                ? `📊 Live Data (${convexMenuItems.length} items from database)` 
-                : '📋 Fallback Data (database not available)'}
-            </span>
-          </div>
-        )}
-
-        {/* Loading State */}
-        {isLoading && (
-          <div className="flex items-center justify-center h-64">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600"></div>
-            <span className="ml-3 text-gray-600">Loading menu from database...</span>
-          </div>
-        )}
-
-        {/* Menu Grid */}
-        {!isLoading && displayItems.length > 0 ? (
+        {/* Menu Content - Only render on client side */}
+        {isClient ? (
+          <MenuClient fallbackItems={fallbackItems} />
+        ) : (
+          // Static content for SSR/build time
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {displayItems.map((item: MenuItem) => (
+            {fallbackItems.map((item: MenuItem) => (
               <div 
                 key={item._id} 
                 className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
               >
                 {/* Image */}
                 <div className="relative h-48 overflow-hidden">
-                  <ConvexImage
-                    storageId={item.image}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={typeof item.image === 'string' ? item.image : ''}
                     alt={item.name}
-                    fill
-                    className="object-cover transition-transform duration-300 hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                   />
                   {item.popular && (
                     <div className="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
@@ -176,17 +128,7 @@ export default function Menu() {
               </div>
             ))}
           </div>
-        ) : !isLoading ? (
-          <div className="text-center py-12">
-            <div className="mx-auto h-12 w-12 text-gray-400 mb-4">
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-              </svg>
-            </div>
-            <h3 className="text-lg font-medium text-gray-900 mb-2">Belum Ada Menu</h3>
-            <p className="text-gray-500">Menu akan muncul setelah admin menambahkan dari dashboard.</p>
-          </div>
-        ) : null}
+        )}
 
         {/* Additional Info */}
         <div className="mt-16 bg-white rounded-2xl p-8 shadow-lg">
