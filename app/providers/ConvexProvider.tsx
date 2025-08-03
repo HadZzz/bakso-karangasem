@@ -13,41 +13,33 @@ export const useConvexAvailable = () => useContext(ConvexAvailabilityContext);
 const createConvexClient = () => {
   const url = process.env.NEXT_PUBLIC_CONVEX_URL;
   
-  // During build time or when URL is not available, return null
+  // During build time or when URL is not available, create a dummy client
   if (!url) {
-    console.warn('NEXT_PUBLIC_CONVEX_URL is not set. Convex features will be disabled.');
-    return null;
+    console.warn('NEXT_PUBLIC_CONVEX_URL is not set. Creating dummy Convex client.');
+    // Create a dummy URL for build time
+    return new ConvexReactClient('https://dummy.convex.cloud');
   }
   
   try {
     return new ConvexReactClient(url);
   } catch (error) {
     console.error('Failed to create Convex client:', error);
-    return null;
+    // Create a dummy client as fallback
+    return new ConvexReactClient('https://dummy.convex.cloud');
   }
 };
 
 const convex = createConvexClient();
 
 export function ConvexClientProvider({ children }: { children: ReactNode }) {
-  const isConvexAvailable = !!convex;
+  const isConvexAvailable = !!process.env.NEXT_PUBLIC_CONVEX_URL;
   
-  // Always provide the availability context
-  const content = (
-    <ConvexAvailabilityContext.Provider value={isConvexAvailable}>
-      {children}
-    </ConvexAvailabilityContext.Provider>
-  );
-  
-  // If no convex client, render with availability context only
-  if (!convex) {
-    return content;
-  }
-  
-  // If convex client exists, wrap with ConvexProvider
+  // Always wrap with ConvexProvider to prevent hook errors
   return (
     <ConvexProvider client={convex}>
-      {content}
+      <ConvexAvailabilityContext.Provider value={isConvexAvailable}>
+        {children}
+      </ConvexAvailabilityContext.Provider>
     </ConvexProvider>
   );
 }
