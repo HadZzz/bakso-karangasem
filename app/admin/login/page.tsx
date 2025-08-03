@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { useMutation } from "convex/react";
+import { useConvexMutation } from "../../hooks/useConvexMutation";
 import { api } from "../../../convex/_generated/api";
 
 export default function AdminLogin() {
@@ -12,7 +12,7 @@ export default function AdminLogin() {
   const [error, setError] = useState("");
   
   const router = useRouter();
-  const loginAdmin = useMutation(api.auth.loginAdmin);
+  const loginAdmin = useConvexMutation(api.auth.loginAdmin);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

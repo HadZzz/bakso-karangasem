@@ -1,11 +1,11 @@
 "use client";
 
-import { useQuery } from "convex/react";
+import { useConvexQuery } from "../hooks/useConvexQuery";
 import { api } from "../../convex/_generated/api";
 import Link from "next/link";
 
 export default function AdminDashboard() {
-  const menuItems = useQuery(api.menu.getAll);
+  const menuItems = useConvexQuery(api.menu.getAll);
 
   if (menuItems === undefined) {
     return (

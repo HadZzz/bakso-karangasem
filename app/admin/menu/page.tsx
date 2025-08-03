@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { useQuery, useMutation } from "convex/react";
+import { useConvexQuery } from "../../hooks/useConvexQuery";
+import { useConvexMutation } from "../../hooks/useConvexMutation";
 import { api } from "../../../convex/_generated/api";
 import Link from "next/link";
 import ConvexImage from "../../components/ConvexImage";
@@ -9,10 +10,10 @@ import { MenuItem, MenuCategory } from "../../../types/menu";
 
 export default function MenuManagement() {
   const [filter, setFilter] = useState<MenuCategory>("all");
-  const menuItems = useQuery(api.menu.getAll);
-  const toggleAvailability = useMutation(api.menu.toggleAvailability);
-  const togglePopular = useMutation(api.menu.togglePopular);
-  const deleteMenu = useMutation(api.menu.remove);
+  const menuItems = useConvexQuery(api.menu.getAll);
+  const toggleAvailability = useConvexMutation(api.menu.toggleAvailability);
+  const togglePopular = useConvexMutation(api.menu.togglePopular);
+  const deleteMenu = useConvexMutation(api.menu.remove);
 
   if (menuItems === undefined) {
     return (

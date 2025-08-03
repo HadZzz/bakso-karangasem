@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { useQuery, useMutation } from "convex/react";
+import { useConvexQuery } from "../../../../hooks/useConvexQuery";
+import { useConvexMutation } from "../../../../hooks/useConvexMutation";
 import { api } from "../../../../../convex/_generated/api";
 import { Id } from "../../../../../convex/_generated/dataModel";
 import ImageUpload from "../../../../components/ImageUpload";
@@ -26,8 +27,8 @@ export default function EditMenuItem({ params }: EditMenuItemProps) {
 
   const router = useRouter();
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const menuItem = useQuery(api.menu.getById, { id: params.id as any });
-  const updateMenu = useMutation(api.menu.update);
+  const menuItem = useConvexQuery(api.menu.getById, { id: params.id as any });
+  const updateMenu = useConvexMutation(api.menu.update);
 
   useEffect(() => {
     if (menuItem) {

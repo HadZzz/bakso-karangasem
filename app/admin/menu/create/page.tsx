@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { useMutation } from "convex/react";
+import { useConvexMutation } from "../../../hooks/useConvexMutation";
 import { api } from "../../../../convex/_generated/api";
 import { Id } from "../../../../convex/_generated/dataModel";
 import ImageUpload from "../../../components/ImageUpload";
@@ -21,7 +21,7 @@ export default function CreateMenuItem() {
   const [error, setError] = useState("");
 
   const router = useRouter();
-  const createMenu = useMutation(api.menu.create);
+  const createMenu = useConvexMutation(api.menu.create);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

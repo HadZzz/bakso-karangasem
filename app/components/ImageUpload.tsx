@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { useMutation } from "convex/react";
+import { useConvexMutation } from "../hooks/useConvexMutation";
 import { api } from "../../convex/_generated/api";
 import { Id } from "../../convex/_generated/dataModel";
 import ConvexImage from "./ConvexImage";
@@ -23,7 +23,7 @@ export default function ImageUpload({ currentImage, onImageChange, className = "
   );
   const fileInputRef = useRef<HTMLInputElement>(null);
   
-  const generateUploadUrl = useMutation(api.files.generateUploadUrl);
+  const generateUploadUrl = useConvexMutation(api.files.generateUploadUrl);
 
   // Function to compress image before upload
   const compressImage = (file: File, maxWidth: number = 800, quality: number = 0.8): Promise<File> => {
