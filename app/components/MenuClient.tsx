@@ -12,21 +12,39 @@ interface MenuClientProps {
 export default function MenuClient({ fallbackItems = [] }: MenuClientProps) {
   // Always call useConvexQuery - never conditionally
   const convexMenuItems = useConvexQuery(api.menu.getAvailable);
+  const isConvexAvailable = process.env.NEXT_PUBLIC_CONVEX_URL ? true : false;
   
   // Determine what to display
   const displayItems = (convexMenuItems && convexMenuItems.length > 0)
     ? convexMenuItems
     : fallbackItems;
 
-  const isLoading = convexMenuItems === undefined;
+  const isLoading = convexMenuItems === undefined && isConvexAvailable;
 
   return (
     <>
+      {/* Convex Not Available Warning */}
+      {!isConvexAvailable && (
+        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 mb-8">
+          <div className="flex items-center">
+            <svg className="w-6 h-6 text-yellow-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16c-.77.833.192 2.5 1.732 2.5z" />
+            </svg>
+            <div>
+              <h3 className="text-lg font-medium text-yellow-800">Database Not Connected</h3>
+              <p className="text-yellow-700 mt-1">
+                Menu database is not available. Please contact administrator to configure Convex environment variables.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Loading State */}
       {isLoading ? (
         <div className="flex items-center justify-center h-64">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600"></div>
-          <span className="ml-3 text-gray-600">Loading menu...</span>
+          <span className="ml-3 text-gray-600">Loading menu from database...</span>
         </div>
       ) : displayItems.length > 0 ? (
         /* Menu Grid */
@@ -80,8 +98,14 @@ export default function MenuClient({ fallbackItems = [] }: MenuClientProps) {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
             </svg>
           </div>
-          <h3 className="text-lg font-medium text-gray-900 mb-2">Belum Ada Menu</h3>
-          <p className="text-gray-500">Menu akan muncul setelah admin menambahkan dari dashboard.</p>
+          <h3 className="text-lg font-medium text-gray-900 mb-2">
+            {!isConvexAvailable ? "Database Not Available" : "Belum Ada Menu"}
+          </h3>
+          <p className="text-gray-500">
+            {!isConvexAvailable
+              ? "Please configure Convex environment variables to load menu from database."
+              : "Menu akan muncul setelah admin menambahkan dari dashboard."}
+          </p>
         </div>
       )}
     </>
