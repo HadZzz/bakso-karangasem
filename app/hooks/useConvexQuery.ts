@@ -7,7 +7,7 @@ import { FunctionReference, OptionalRestArgs } from "convex/server";
 export function useConvexQuery<Query extends FunctionReference<"query">>(
   query: Query,
   ...args: OptionalRestArgs<Query>
-): any {
+): unknown {
   try {
     // Check if we're in a ConvexProvider context
     const result = useQuery(query, ...args);
