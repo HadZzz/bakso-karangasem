@@ -1,6 +1,6 @@
 "use client";
 
-import { useQuery } from "convex/react";
+import { useConvexQuery } from "../hooks/useConvexQuery";
 import { api } from "../../convex/_generated/api";
 import ConvexImage from "./ConvexImage";
 import { useEffect, useState } from "react";
@@ -22,8 +22,8 @@ export default function MenuClient({ fallbackItems }: MenuClientProps) {
     return () => clearTimeout(timer);
   }, []);
 
-  // Always call useQuery - never conditionally
-  const convexMenuItems: MenuItem[] | undefined = useQuery(api.menu.getAvailable);
+  // Always call useConvexQuery - never conditionally
+  const convexMenuItems = useConvexQuery(api.menu.getAvailable);
   
   // Determine what to display
   const displayItems = (convexMenuItems && convexMenuItems.length > 0) 

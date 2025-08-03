@@ -1,6 +1,6 @@
 "use client";
 
-import { useQuery } from "convex/react";
+import { useConvexQuery } from "../hooks/useConvexQuery";
 import { api } from "../../convex/_generated/api";
 import { Id } from "../../convex/_generated/dataModel";
 import Image from "next/image";
@@ -52,7 +52,7 @@ export default function ConvexImage({
     (storageId.startsWith('http') || storageId.includes('google.com') ||
      storageId.includes('kompas.com') || storageId.includes('.'));
   
-  const imageUrl = useQuery(api.files.getImageUrl,
+  const imageUrl = useConvexQuery(api.files.getImageUrl,
     (storageId && !isLegacyUrl) ? { storageId: storageId as Id<"_storage"> } : "skip"
   );
 
