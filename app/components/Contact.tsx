@@ -139,7 +139,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-800">Telepon</h4>
-                    <p className="text-gray-600">(0271) 123-4567</p>
+                    <p className="text-gray-600">085876120167</p>
                     <p className="text-sm text-gray-500">Senin - Minggu, 08:00 - 21:00</p>
                   </div>
                 </div>
@@ -199,7 +199,7 @@ export default function Contact() {
               <h4 className="font-semibold text-gray-800 mb-4">Aksi Cepat</h4>
               <div className="grid grid-cols-2 gap-4">
                 <a
-                  href="tel:+62271234567"
+                  href="tel:+62085876120167"
                   className="bg-red-600 hover:bg-red-700 text-white text-center py-3 px-4 rounded-lg transition-colors"
                 >
                   Telepon Sekarang

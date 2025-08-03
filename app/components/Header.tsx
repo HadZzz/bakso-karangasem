@@ -57,7 +57,7 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <button 
+            <button
               onClick={() => scrollToSection('home')}
               className={`hover:text-red-600 transition-colors ${
                 isScrolled ? 'text-gray-800' : 'text-white'
@@ -65,7 +65,7 @@ export default function Header() {
             >
               Beranda
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection('menu')}
               className={`hover:text-red-600 transition-colors ${
                 isScrolled ? 'text-gray-800' : 'text-white'
@@ -73,7 +73,7 @@ export default function Header() {
             >
               Menu
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection('about')}
               className={`hover:text-red-600 transition-colors ${
                 isScrolled ? 'text-gray-800' : 'text-white'
@@ -81,7 +81,7 @@ export default function Header() {
             >
               Tentang
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection('location')}
               className={`hover:text-red-600 transition-colors ${
                 isScrolled ? 'text-gray-800' : 'text-white'
@@ -89,7 +89,15 @@ export default function Header() {
             >
               Lokasi
             </button>
-            <button 
+            <a
+              href="/admin"
+              className={`hover:text-red-600 transition-colors ${
+                isScrolled ? 'text-gray-800' : 'text-white'
+              }`}
+            >
+              Admin
+            </a>
+            <button
               onClick={() => scrollToSection('contact')}
               className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-full transition-colors"
             >
@@ -112,31 +120,37 @@ export default function Header() {
         {isMobileMenuOpen && (
           <div className="md:hidden mt-4 bg-white rounded-lg shadow-lg p-4">
             <div className="flex flex-col space-y-4">
-              <button 
+              <button
                 onClick={() => scrollToSection('home')}
                 className="text-gray-800 hover:text-red-600 transition-colors text-left"
               >
                 Beranda
               </button>
-              <button 
+              <button
                 onClick={() => scrollToSection('menu')}
                 className="text-gray-800 hover:text-red-600 transition-colors text-left"
               >
                 Menu
               </button>
-              <button 
+              <button
                 onClick={() => scrollToSection('about')}
                 className="text-gray-800 hover:text-red-600 transition-colors text-left"
               >
                 Tentang
               </button>
-              <button 
+              <button
                 onClick={() => scrollToSection('location')}
                 className="text-gray-800 hover:text-red-600 transition-colors text-left"
               >
                 Lokasi
               </button>
-              <button 
+              <a
+                href="/admin"
+                className="text-gray-800 hover:text-red-600 transition-colors text-left"
+              >
+                Admin
+              </a>
+              <button
                 onClick={() => scrollToSection('contact')}
                 className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-full transition-colors"
               >
