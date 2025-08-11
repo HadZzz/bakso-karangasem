@@ -113,3 +113,12 @@ textarea:focus {
     @apply bg-white/10 backdrop-blur-md border border-white/20;
   }
 }
+
+/* Admin-specific placeholder styles for better visibility */
+@layer utilities {
+  .admin input::placeholder,
+  .admin textarea::placeholder {
+    color: #000 !important;
+    opacity: 1 !important;
+  }
+}

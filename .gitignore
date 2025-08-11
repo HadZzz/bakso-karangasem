@@ -34,3 +34,23 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Documentation and thesis files
+*.md
+*.docx
+*.pdf
+*.txt
+templates/
+arsitektur aplikasi.png
+
+# Specific thesis files
+BAB_*
+DAFTAR_*
+PANDUAN_*
+PENJELASAN_*
+PREDIKSI_*
+PRESENTASI_*
+PRIORITAS_*
+TUGAS_*
+proposal*
+revised_*

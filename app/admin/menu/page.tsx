@@ -54,12 +54,12 @@ export default function MenuManagement() {
   };
 
   return (
-    <div className="px-4 py-6 sm:px-0">
+    <div className="px-0 py-6">
       {/* Navigation Header */}
-      <div className="flex items-center space-x-4 mb-6">
+      <div className="flex flex-wrap items-center gap-2 sm:gap-4 mb-6">
         <Link
           href="/admin"
-          className="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+          className="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors duration-200"
         >
           <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -68,7 +68,7 @@ export default function MenuManagement() {
         </Link>
         <Link
           href="/"
-          className="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+          className="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors duration-200"
         >
           <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
@@ -77,17 +77,17 @@ export default function MenuManagement() {
         </Link>
       </div>
 
-      <div className="sm:flex sm:items-center">
-        <div className="sm:flex-auto">
-          <h1 className="text-3xl font-bold text-gray-900">Menu Management</h1>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
+        <div className="flex-auto">
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Menu Management</h1>
           <p className="mt-2 text-sm text-gray-700">
             Manage your restaurant menu items, availability, and pricing.
           </p>
         </div>
-        <div className="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
+        <div className="flex-shrink-0">
           <Link
             href="/admin/menu/create"
-            className="inline-flex items-center justify-center rounded-md border border-transparent bg-red-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:w-auto"
+            className="inline-flex items-center justify-center rounded-md border border-transparent bg-red-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition-colors duration-200 w-full sm:w-auto"
           >
             Add Menu Item
           </Link>
@@ -122,9 +122,9 @@ export default function MenuManagement() {
 
       {/* Menu Items Table */}
       <div className="mt-8 flex flex-col">
-        <div className="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
-          <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-            <div className="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
+        <div className="overflow-x-auto">
+          <div className="inline-block min-w-full py-2 align-middle">
+            <div className="overflow-hidden shadow ring-1 ring-black ring-opacity-5 rounded-lg">
               <table className="min-w-full divide-y divide-gray-300">
                 <thead className="bg-gray-50">
                   <tr>

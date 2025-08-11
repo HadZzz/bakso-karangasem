@@ -51,7 +51,7 @@ export default function AdminLogin() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="admin min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         {/* Navigation Header */}
         <div className="flex justify-center">
@@ -110,7 +110,7 @@ export default function AdminLogin() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-red-500 focus:border-red-500 focus:z-10 sm:text-sm"
+                className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-black bg-white rounded-md focus:outline-none focus:ring-red-500 focus:border-red-500 focus:z-10 sm:text-sm"
                 placeholder="admin@baksomurniati.com"
               />
             </div>
@@ -126,7 +126,7 @@ export default function AdminLogin() {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-red-500 focus:border-red-500 focus:z-10 sm:text-sm"
+                className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-black bg-white rounded-md focus:outline-none focus:ring-red-500 focus:border-red-500 focus:z-10 sm:text-sm"
                 placeholder="Password"
               />
             </div>

@@ -56,14 +56,14 @@ export default function AdminLayout({
 
   return (
     <AdminWrapper>
-    <div className="min-h-screen bg-gray-50">
+    <div className="admin min-h-screen bg-gray-50">
       {/* Navigation */}
       <nav className="bg-white shadow-sm border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
-            <div className="flex items-center">
+            <div className="flex items-center min-w-0 flex-1">
               <div className="flex-shrink-0">
-                <h1 className="text-xl font-bold text-gray-900">
+                <h1 className="text-lg sm:text-xl font-bold text-gray-900 truncate">
                   Bakso Murniati Admin
                 </h1>
               </div>
@@ -90,26 +90,52 @@ export default function AdminLayout({
                 </Link>
               </div>
             </div>
-            <div className="flex items-center">
-              <div className="flex-shrink-0">
-                <span className="text-sm text-gray-700 mr-4">
+            <div className="flex items-center flex-shrink-0">
+              <div className="flex items-center space-x-2 sm:space-x-4">
+                <span className="hidden sm:inline text-sm text-gray-700">
                   Welcome, {admin.name}
                 </span>
                 <button
                   onClick={handleLogout}
-                  className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md text-sm font-medium"
+                  className="bg-red-600 hover:bg-red-700 text-white px-3 py-2 sm:px-4 rounded-md text-xs sm:text-sm font-medium transition-colors duration-200"
                 >
                   Logout
                 </button>
               </div>
             </div>
           </div>
+          
+          {/* Mobile menu */}
+          <div className="md:hidden border-t border-gray-200 pt-2 pb-3 space-y-1">
+            <Link
+              href="/admin"
+              className={`block px-3 py-2 rounded-md text-base font-medium ${
+                pathname === "/admin"
+                  ? "bg-red-50 border-red-500 text-red-700"
+                  : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+              }`}
+            >
+              Dashboard
+            </Link>
+            <Link
+              href="/admin/menu"
+              className={`block px-3 py-2 rounded-md text-base font-medium ${
+                pathname.startsWith("/admin/menu")
+                  ? "bg-red-50 border-red-500 text-red-700"
+                  : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+              }`}
+            >
+              Menu Management
+            </Link>
+          </div>
         </div>
       </nav>
 
       {/* Main content */}
-      <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-        {children}
+      <main className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        <div className="overflow-hidden">
+          {children}
+        </div>
       </main>
     </div>
     </AdminWrapper>
